@@ -51,12 +51,16 @@ public class AccountBank {
     }
 
     public void withdraw(double amount) {
-        // Withdraw without checking balance
-        balance -= amount;
-        System.out.println("Rút tiền thành công.");
+
+       if (amount > 0 && amount <=balance){
+           balance -= amount;
+           System.out.println("rút tiền thành công");
+
+       }else {
+           System.out.println("số dư không đủ hoặc số tiền rút không hợp lệ");
+       }
     }
 
-    // Method to transfer money to another account
     public void transfer(AccountBank recipientAccount, double amount) {
         if (balance >= amount) {
             balance -= amount;
